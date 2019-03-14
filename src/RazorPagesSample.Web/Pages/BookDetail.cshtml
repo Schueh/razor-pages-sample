@@ -1,0 +1,23 @@
+﻿@page
+@model MyApp.Namespace.BookDetailModel
+@{
+    ViewData["Title"] = Model.Book.Title;
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Model.Book.Title</h1>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-12 shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">@Model.Book.Description</p>
+                        <p class="card-text">@Model.Book.ReleaseDate.ToShortDateString()</p>
+                        <p class="card-text">@Model.Book.Author</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
