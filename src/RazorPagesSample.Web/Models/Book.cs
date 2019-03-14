@@ -9,7 +9,6 @@ namespace RazorPagesSample.Web.Models
         public string Author { get; set; }
         public string Description { get; set; }
         public DateTime ReleaseDate { get; set; }
-        
-        // TODO: add image
+        public string Image { get; set; }
     }
 }
