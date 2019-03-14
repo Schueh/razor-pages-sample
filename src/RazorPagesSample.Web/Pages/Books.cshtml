@@ -26,6 +26,16 @@
                     </div>
                 </div>
             }
+            <div class="col-md-4">
+                <cache expires-after="TimeSpan.FromSeconds(10)" vary-by-query="time">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h2 class="card-title">Caching sample</h2>
+                            <p>Current date: @DateTime.Now</p>
+                        </div>
+                    </div>
+                </cache>
+            </div>
         </div>
     </div>
 </div>
