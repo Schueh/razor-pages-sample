@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPagesSample.Web.Models;
 using RazorPagesSample.Web.Services;
 
-namespace MyApp.Namespace
+namespace RazorPagesSample.Web.Pages
 {
     public class BookDetailModel : PageModel
     {
