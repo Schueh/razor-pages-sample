@@ -8,5 +8,10 @@ namespace RazorPagesSample.Web.Services
         {
             
         }
+
+        public void SendMail(string address)
+        {
+            
+        }
     }
 }

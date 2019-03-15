@@ -5,5 +5,6 @@ namespace RazorPagesSample.Web.Services
     public interface IEmailService
     {
         void SendMail(Contact contact);
+        void SendMail(string address);
     }
 }

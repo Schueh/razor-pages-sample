@@ -20,20 +20,24 @@ namespace RazorPagesSample.Web.Pages
         {
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (ModelState.IsValid)
             {
                 var emailService = new EmailService();
                 emailService.SendMail(Contact);
 
-                Message = "Your email has been sent.";
+                return new RedirectToPageResult("Confirmation", "Contact");
             }
+
+            return Page();
         }
 
-        public void OnPostSubscribe(string address)
+        public IActionResult OnPostSubscribe(string address)
         {
-            Message = "Your email address has been added to the subscription list.";
+            var emailService = new EmailService();
+            emailService.SendMail(address);
+            return new RedirectToPageResult("Confirmation", "Subscribe");
         }
     }
 }
