@@ -13,10 +13,10 @@ namespace RazorPagesSample.Web.Pages
     {
         public Book Book { get; private set; }
 
-        public void OnGet(int id)
+        public void OnGet(string slug)
         {
             var bookService = new BookService();
-            Book = bookService.GetBook(id);
+            Book = bookService.GetBooks().SingleOrDefault(x => x.Slug == slug);
         }
     }
 }

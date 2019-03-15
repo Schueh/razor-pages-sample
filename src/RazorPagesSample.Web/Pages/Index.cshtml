@@ -1,10 +1,41 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Books";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Books</h1>
+    
+    <div class="container">
+        <div class="row">
+            @foreach (var book in Model.Books)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img asp-append-version="true" class="bd-placeholder-img card-img-top" width="50%" height="200" src="~/images/@book.Image"/>
+                        <div class="card-body">
+                            <p class="card-text">@book.Title</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a asp-page="BookDetail" asp-route-slug="@book.Slug" class="btn btn-sm btn-outline-primary">Details</a>
+                                </div>
+                                <small class="text-muted">@book.Author</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="col-md-4">
+                <cache expires-after="TimeSpan.FromSeconds(10)" vary-by-query="time">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h2 class="card-title">Caching sample</h2>
+                            <p>Current date: @DateTime.Now</p>
+                        </div>
+                    </div>
+                </cache>
+            </div>
+        </div>
+    </div>
 </div>
