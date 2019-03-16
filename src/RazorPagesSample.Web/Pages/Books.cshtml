@@ -12,7 +12,7 @@
             @foreach (var book in Model.Books)
             {
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4">
                         <img asp-append-version="true" class="bd-placeholder-img card-img-top" width="50%" height="200" src="~/images/@book.Image"/>
                         <div class="card-body">
                             <p class="card-text">@book.Title</p>

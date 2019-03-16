@@ -6,6 +6,7 @@ namespace RazorPagesSample.Web.Services
     public interface IBookService
     {
         IEnumerable<Book> GetBooks();
+        IEnumerable<Book> GetRecentBooks();
         Book GetBook(int id);
     }
 }

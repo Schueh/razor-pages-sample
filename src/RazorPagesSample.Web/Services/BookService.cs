@@ -31,5 +31,11 @@ namespace RazorPagesSample.Web.Services
         {
             return _books;
         }
+
+        public IEnumerable<Book> GetRecentBooks()
+        {
+            var recentBooks = _books.OrderByDescending(x => x.ReleaseDate);
+            return recentBooks;
+        }
     }
 }
