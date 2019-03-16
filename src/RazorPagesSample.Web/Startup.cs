@@ -51,11 +51,28 @@ namespace RazorPagesSample.Web
             services.AddScoped<IBookService, BookService>();
 
             services.AddLogging();
+
+            services.AddHealthChecks();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // custom middleware for health check
+            /* app.Use(async (context, next) =>
+            {
+                if (context.Request.Path.Value.Contains("health"))
+                {
+                    await context.Response.WriteAsync("App is healthy");
+                }
+                else
+                {
+                    await next.Invoke();
+                }
+            }); */
+
+            app.UseHealthChecks("/health");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
