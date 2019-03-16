@@ -38,7 +38,7 @@ namespace RazorPagesSample.Web
                 .AddRazorPagesOptions(options => 
                 {
                     options.Conventions.AddPageRoute("/index", "home");
-                    options.Conventions.AddPageRoute("/index", "books");
+                    options.Conventions.AddPageRoute("/index", "start");
                 });
 
             services.Configure<RouteOptions>(options => 
