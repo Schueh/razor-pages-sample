@@ -11,12 +11,18 @@ namespace RazorPagesSample.Web.Pages
 {
     public class BookDetailModel : PageModel
     {
+        private readonly IBookService _bookService;
+
         public Book Book { get; private set; }
+
+        public BookDetailModel(IBookService bookService)
+        {
+            _bookService = bookService;
+        }
 
         public void OnGet(string slug)
         {
-            var bookService = new BookService();
-            Book = bookService.GetBooks().SingleOrDefault(x => x.Slug == slug);
+            Book = _bookService.GetBooks().SingleOrDefault(x => x.Slug == slug);
         }
     }
 }

@@ -11,10 +11,17 @@ namespace RazorPagesSample.Web.Pages
 {
     public class ContactModel : PageModel
     {
+        private readonly IEmailService _emailService;
+
         [BindProperty]
         public Contact Contact { get; set; }
         
         public string Message { get; private set; }
+
+        public ContactModel(IEmailService emailService)
+        {
+            _emailService = emailService;
+        }
 
         public void OnGet()
         {
@@ -24,8 +31,7 @@ namespace RazorPagesSample.Web.Pages
         {
             if (ModelState.IsValid)
             {
-                var emailService = new EmailService();
-                emailService.SendMail(Contact);
+                _emailService.SendMail(Contact);
 
                 return new RedirectToPageResult("Confirmation", "Contact");
             }
@@ -35,8 +41,7 @@ namespace RazorPagesSample.Web.Pages
 
         public IActionResult OnPostSubscribe(string address)
         {
-            var emailService = new EmailService();
-            emailService.SendMail(address);
+            _emailService.SendMail(address);
             return new RedirectToPageResult("Confirmation", "Subscribe");
         }
     }
