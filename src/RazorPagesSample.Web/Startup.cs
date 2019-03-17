@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RazorPagesSample.Web.Data;
 using RazorPagesSample.Web.RouteConstraints;
 using RazorPagesSample.Web.Services;
 
@@ -40,6 +42,11 @@ namespace RazorPagesSample.Web
             services.AddLogging();
 
             services.AddHealthChecks();
+
+            services.AddDbContext<BookContext>(options =>
+            {
+               options.UseInMemoryDatabase("bookTestDb"); 
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
