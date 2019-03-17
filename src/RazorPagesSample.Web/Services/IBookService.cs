@@ -9,5 +9,6 @@ namespace RazorPagesSample.Web.Services
         IEnumerable<Book> GetRecentBooks();
         Book GetBook(int id);
         void UpdateBook(Book book);
+        void DeleteBook(Book book);
     }
 }

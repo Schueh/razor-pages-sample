@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using RazorPagesSample.Web.Models;
@@ -31,6 +32,18 @@ namespace RazorPagesSample.Web.Pages
             {
                 _logger.LogError("Error on getting books.", ex);
             }
+        }
+
+        public IActionResult OnPostDelete(int id)
+        {
+            var book = _bookService.GetBook(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            _bookService.DeleteBook(book);
+            return RedirectToPage("Books");
         }
     }
 }

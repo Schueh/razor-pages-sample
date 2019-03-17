@@ -20,6 +20,9 @@
                                 <div class="btn-group">
                                     <a asp-page="BookDetail" asp-route-slug="@book.Slug" class="btn btn-sm btn-outline-primary">Details</a>
                                     <a asp-page="EditBook" asp-route-id="@book.Id" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    <form asp-page-handler="delete" asp-route-id="@book.Id" method="post">
+                                        <button class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    </form>
                                 </div>
                                 <small class="text-muted">@book.Author</small>
                             </div>

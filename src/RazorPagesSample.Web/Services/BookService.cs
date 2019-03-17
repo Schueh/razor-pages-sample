@@ -36,5 +36,11 @@ namespace RazorPagesSample.Web.Services
             _bookContext.Update(book);
             _bookContext.SaveChanges();
         }
+
+        public void DeleteBook(Book book)
+        {
+            _bookContext.Remove(book);
+            _bookContext.SaveChanges();
+        }
     }
 }
