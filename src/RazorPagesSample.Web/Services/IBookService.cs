@@ -8,5 +8,6 @@ namespace RazorPagesSample.Web.Services
         IEnumerable<Book> GetBooks();
         IEnumerable<Book> GetRecentBooks();
         Book GetBook(int id);
+        void UpdateBook(Book book);
     }
 }

@@ -30,5 +30,11 @@ namespace RazorPagesSample.Web.Services
         {
             return _bookContext.Books.OrderByDescending(x => x.ReleaseDate);
         }
+
+        public void UpdateBook(Book book)
+        {
+            _bookContext.Update(book);
+            _bookContext.SaveChanges();
+        }
     }
 }
